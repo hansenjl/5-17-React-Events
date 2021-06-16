@@ -43,7 +43,7 @@ let toysObj = {
         "likes": 0
       },
       {
-        "id": 8,
+        "id": 10,
         "name": "Little Green Man",
         "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
         "likes": -2
