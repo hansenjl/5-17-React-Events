@@ -8,10 +8,10 @@ function ToysContainer({searchTerm}){
    // typically you would set this to an empty array 
 
    useEffect(()=>{
-       fetch('http://localhost:3004/toys')
+       fetch('http://localhost:3000/toys')
        .then(r => r.json())
        .then(data => setToys(data))
-   })
+   }, [])
   
 
    function addLike(id){
@@ -40,9 +40,12 @@ function ToysContainer({searchTerm}){
         />)
    }
    
+   function addToy(newToy){
+        setToys([...toys, newToy])
+   }
     return(
         <div id="toy-container">
-            <ToyForm />
+            <ToyForm addToyFn={addToy}/>
             {renderToys()}
         </div>
             
