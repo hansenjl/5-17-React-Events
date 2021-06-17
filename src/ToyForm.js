@@ -35,6 +35,7 @@ function ToyForm({addToyFn}){
             addToyFn(data)
         })
         
+       setFormData({name: "", image: "", likes: ""})
 
     }
 
