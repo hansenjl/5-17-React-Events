@@ -1,12 +1,17 @@
-import toysObj from './database'
 import ToyCard from './ToyCard'
-import {useState} from 'react'
+import ToyForm from './ToyForm'
+import {useState, useEffect} from 'react'
 
 function ToysContainer({searchTerm}){
   
-   const [toys, setToys] = useState(toysObj.toys)
+   const [toys, setToys] = useState([])
    // typically you would set this to an empty array 
 
+   useEffect(()=>{
+       fetch('http://localhost:3004/toys')
+       .then(r => r.json())
+       .then(data => setToys(data))
+   })
   
 
    function addLike(id){
@@ -37,7 +42,7 @@ function ToysContainer({searchTerm}){
    
     return(
         <div id="toy-container">
-            
+            <ToyForm />
             {renderToys()}
         </div>
             
