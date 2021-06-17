@@ -19,11 +19,11 @@ function ToyForm({addToyFn}){
         // add this data to our state that keeps track of toys 
         // console.log(formData)
         // addToyFn(formData)
-        const newToy = JSON.stringify(formData)
+        const newToy = JSON.stringify({...formData, likes: parseInt(formData.likes)})
         console.log(newToy)
         const configObj = {
             method: 'POST', 
-            header: {
+            headers: {
                 "Content-Type": "application/json"
             },
             body: newToy
