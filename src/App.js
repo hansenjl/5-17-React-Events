@@ -4,8 +4,9 @@ import Search from './Search'
 import {useState} from 'react'
 import Counter from './Counter'
 
-function App() {
+function App() { 
   const [searchTerm, setSearchTerm] = useState("")
+  const [toys, setToys] = useState([])
 
   function handleChange(event){
     setSearchTerm(event.target.value) 

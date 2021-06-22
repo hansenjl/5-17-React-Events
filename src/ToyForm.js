@@ -28,7 +28,7 @@ function ToyForm({addToyFn}){
             },
             body: newToy
         }
-        fetch("http://localhost:3000/toys", configObj)
+        fetch("http://localhost:3004/toys", configObj)
         .then( r => r.json())
         .then(data => {
             console.log(data)

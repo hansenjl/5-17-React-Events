@@ -8,7 +8,7 @@ function ToysContainer({searchTerm}){
    // typically you would set this to an empty array 
 
    useEffect(()=>{
-       fetch('http://localhost:3000/toys')
+       fetch('http://localhost:3004/toys')
        .then(r => r.json())
        .then(data => setToys(data))
    }, [])
@@ -26,23 +26,27 @@ function ToysContainer({searchTerm}){
 
    function renderToys(){
 
-    // we want only the toys who have a name that includes the search team
-    const filteredToys = toys.filter((toy) => toy.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        // we want only the toys who have a name that includes the search team
+        const filteredToys = toys.filter((toy) => toy.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
-     return filteredToys.map( (toy,index) => 
-        <ToyCard 
-            key={index} 
-            id={toy.id}  
-            name={toy.name}  
-            image={toy.image} 
-            likes={toy.likes}
-            addLike={addLike}
-        />)
+        return filteredToys.map( (toy,index) => {
+            return(
+                <ToyCard 
+                    key={index} 
+                    id={toy.id}  
+                    name={toy.name}  
+                    image={toy.image} 
+                    likes={toy.likes}
+                    addLike={addLike}
+                />
+            )
+        })
    }
    
-   function addToy(newToy){
+    function addToy(newToy){
         setToys([...toys, newToy])
-   }
+    }
+
     return(
         <div id="toy-container">
             <ToyForm addToyFn={addToy}/>
